@@ -1,0 +1,26 @@
+body{
+    background-color:rgb(199, 202, 214);
+    padding-top: 70px;
+}
+
+nav.navbar {
+    background-color: rgb(38, 38, 99); /* Vertical gradient */
+    color: rgb(152, 193, 253); /* Text color */
+}
+
+.navbar-brand.display-1 {
+    font-weight: bold !important; /* Make the text bold */
+    font-size:30px;
+    color: rgb(152, 193, 253) !important; /* Change the text color */
+}
+
+.navbar-brand.display-2 {
+    font-weight: bold !important; /* Make the text bold */
+    font-size:20px;
+    color: rgb(152, 193, 253) !important; /* Change the text color */
+}
+
+.navbar-brand:hover {
+    color:rgb(104, 181, 253) !important;
+    transition: color 0.5s ease !important;
+}
