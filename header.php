@@ -15,24 +15,7 @@
     
 <!--Navbar-->
 <nav class="navbar shadow-lg fixed-top">
-    <div class="container-fluid row justify-content-evenly justify-content-xxl-between">
-        <div class="col-3 text-center">
-            <!-- Modified part: Wrapped in flex container -->
-            <a class="navbar-brand display-1 d-flex flex-wrap justify-content-center" href="index.php">
-                <span class="hover-underline me-1">News from</span>
-                <span class="hover-underline">far beyond</span>
-            </a>
-        </div>
-
-        <div class="col-3 text-center">
-            <div class="container-fluid row justify-content-center">
-                <div class="col-12 col-xxl-6 text-center">
-                    <a class="navbar-brand display-2" href="index.php">Sign in</a>
-                </div>
-                <div class="col-12 col-xxl-6 text-center">
-                    <a class="navbar-brand display-2" href="index.php">Sign up</a>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="container-fluid justify-content-center justify-content-xxl-start"> 
+    <a class="navbar-brand display-1" href="index.html">News from far beyond</a>
+  </div>
 </nav>
