@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             max-width: 400px;
             margin: auto;
             padding: 20px;
-            background: white;
+            background: rgb(231, 231, 231);
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
