@@ -16,7 +16,7 @@
                 <ul class="nav flex-column">
                     <h3>О нас</h3>
                     <li>
-                        <a href="contacts.html">Контакты</a>
+                        <a href="contacts.php">Контакты</a>
                     </li>
                     <li>История</li>
                 </ul>

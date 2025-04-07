@@ -1,4 +1,7 @@
-<?php require 'header.php'; ?>
+<?php
+require 'header.php';
+
+?>
 
 <?php
 $stmt = $pdo->query("SELECT * FROM news ORDER BY publication_timestamp DESC");
@@ -10,25 +13,11 @@ $current_page = isset($_GET['page']) ? max(1, min($total_pages, (int)$_GET['page
 $base_url = 'index.php?page=';
 ?>
 
-
 <!-- Main content -->
-<div class="container-fluid align-items-center">
-    <?php if (isset($_SESSION['user'])): ?>
-        <div class="text-end mb-3">
-            Welcome, <?= htmlspecialchars($_SESSION['user']['username']) ?>! 
-            <a href="logout.php" class="btn btn-outline-secondary btn-sm">Logout</a>
-        </div>
-    <?php else: ?>
-        <div class="text-end mb-3">
-            <a href="signin.php" class="btn btn-outline-primary btn-sm">Sign In</a>
-            <a href="signup.php" class="btn btn-primary btn-sm ms-2">Sign Up</a>
-        </div>
-    <?php endif; ?>
-
     <!-- Vertical Cards (first 4 news items) -->
     <div class="row justify-content-center">
         <?php foreach (array_slice($news, 10*($current_page - 1), 4) as $item): ?>
-            <div class="col-10 mb-3 mb-xxl-0 col-md-5 col-xxl-2">
+            <div class="col-10 col-md-5 col-xxl-2 mb-3">
                 <a href="news_detail.php?id=<?= $item['id'] ?>" class="text-decoration-none">
                     <div class="card h-100">
                         <?php if ($item['image_path']): ?>
@@ -40,8 +29,8 @@ $base_url = 'index.php?page=';
                             <small class="text-body-secondary"><?= date('d F Y, H:i', strtotime($item['publication_timestamp'])) ?></small>
                             <?php if (isAdmin()): ?>
                                 <div class="mt-2">
-                                    <a href="edit_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="delete_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                    <a href="edit_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-warning">Редактировать</a>
+                                    <a href="delete_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Удалить</a>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -53,11 +42,11 @@ $base_url = 'index.php?page=';
 
     <!-- Horizontal Cards (next 2 news items) -->
     <?php if (count($news) > 4): ?>
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-xxl-8 d-flex justify-content-center">
-                <div class="row mt-0 mt-xxl-3 justify-content-center">
+                <div class="row justify-content-center">
                     <?php foreach (array_slice($news, 10*($current_page - 1) + 4, 2) as $item): ?>
-                        <div class="col-10 mb-3 mb-xxl-0 col-md-12 col-xxl-6">
+                        <div class="col-10 col-md-12 col-xxl-6 mb-3">
                             <a href="news_detail.php?id=<?= $item['id'] ?>" class="text-decoration-none">
                                 <div class="card h-100">
                                     <div class="row align-items-center h-100">
@@ -73,8 +62,8 @@ $base_url = 'index.php?page=';
                                                 <small class="text-body-secondary"><?= date('d F Y, H:i', strtotime($item['publication_timestamp'])) ?></small>
                                                 <?php if (isAdmin()): ?>
                                                     <div class="mt-2">
-                                                        <a href="edit_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                        <a href="delete_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                                        <a href="edit_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-warning">Редактировать</a>
+                                                        <a href="delete_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Удалить</a>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>
@@ -95,7 +84,7 @@ $base_url = 'index.php?page=';
 
         <div class="row justify-content-center">
         <?php foreach (array_slice($news, 10*($current_page - 1) + 6, 4) as $item): ?>
-            <div class="col-10 mb-3 mb-xxl-0 col-md-5 col-xxl-2">
+            <div class="col-10 col-md-5 col-xxl-2 mb-3">
                 <a href="news_detail.php?id=<?= $item['id'] ?>" class="text-decoration-none">
                     <div class="card h-100">
                         <?php if ($item['image_path']): ?>
@@ -107,8 +96,8 @@ $base_url = 'index.php?page=';
                             <small class="text-body-secondary"><?= date('d F Y, H:i', strtotime($item['publication_timestamp'])) ?></small>
                             <?php if (isAdmin()): ?>
                                 <div class="mt-2">
-                                    <a href="edit_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="delete_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                    <a href="edit_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-warning">Редактировать</a>
+                                    <a href="delete_news.php?id=<?= $item['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Удалить</a>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -124,7 +113,7 @@ $base_url = 'index.php?page=';
 <?php if (isAdmin()): ?>
 <div class="text-center my-4">
     <a href="add_news.php" class="btn btn-primary btn-lg">
-        <i class="bi bi-plus-circle"></i> Add News
+        <i class="bi bi-plus-circle"></i> Добавить новости
     </a>
 </div>
 <?php endif; ?>
@@ -173,4 +162,7 @@ $base_url = 'index.php?page=';
   </ul>
 </nav>
 
-<?php require 'footer.php'; ?>
+<?php
+require 'footer.php';
+
+?>
